@@ -27,6 +27,18 @@ public class ReflectDemo3 {
         Object name = nameField.get(obj);
         System.out.println(name);
 
+
+        // 枚举字段的操作
+        Field hobby = clazz.getDeclaredField("hobby");
+        hobby.setAccessible(true);
+        Object hobbyValue = hobby.get(obj);
+        System.out.println(hobbyValue instanceof Enum);
+        System.out.println("hobby:"+hobbyValue);
+        Field key = hobbyValue.getClass().getDeclaredField("key");
+        key.setAccessible(true);
+        Object desc = key.get(hobbyValue);
+        System.out.println(desc);
+
         // 调用getName方法
         Method m1 = clazz.getMethod("getName");
         Object value = m1.invoke(obj);

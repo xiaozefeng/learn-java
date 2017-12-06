@@ -10,7 +10,7 @@ public class Person {
 
     private String address;
 
-    private Hobby hobby;
+    private Hobby hobby = Hobby.EAT;
 
 
     public Person() {
